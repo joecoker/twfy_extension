@@ -11,7 +11,10 @@ function addClickEvent(classArray) {
     let classList = document.getElementsByClassName(className)
 
     Array.from(classList).forEach(element => {
-      element.addEventListener('click', function() {
+      element.addEventListener('click', function(event) {
+        console.log(event);
+        event.preventDefault()
+        event.stopPropagation();
         sendToBackground(className);
       });
     });
@@ -20,14 +23,20 @@ function addClickEvent(classArray) {
 
 function highlightText(mpJSON) {
   let classArray = [];
+  
 
+  // instead use ahocorasick to get array of names of included politicians
   mpJSON.forEach(mpObj => {
     let name = mpObj.mpFullName;
     let className = mpObj.mpId;
 
+    // Regex is working but not all elements with links are anchor tags - need one that includes anything with a href
+    let nameRegex = new RegExp(name, 'g');
+
     if(document.body.innerHTML.includes(name)) {
-      let profileLink = "<a href=# class=" + className + " style='color: #62B356'>" + name + "</a>";
-      document.body.innerHTML = document.body.innerHTML.replace(new RegExp(name, 'g'), profileLink);
+      let profileLink = "<span href=# class=" + className + " style='color: #62B356'>" + name + "</span>";
+
+      document.body.innerHTML = document.body.innerHTML.replace(nameRegex, profileLink);
       classArray.push(className)
     };
   });

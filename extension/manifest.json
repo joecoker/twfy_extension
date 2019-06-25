@@ -6,6 +6,11 @@
     "persistent": false,
     "scripts": ["background.js"]
   },
+  "icons": {
+    "16": "icons/i-16.png",
+    "48": "icons/i-48.png",
+    "128": "icons/i-128.png"
+  },
   "permissions": [
     "activeTab",
     "tabs"
