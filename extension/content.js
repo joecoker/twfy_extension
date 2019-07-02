@@ -3,8 +3,6 @@ const AhoCorasick = require('ahocorasick');
 const mpJSON = require('./mp.json');
 const mpArray = require('./mpArray.json')
 
-let startTime = performance.now();
-
 function sendToBackground(id) {
   chrome.runtime.sendMessage(id);
 }
@@ -23,48 +21,15 @@ function addClickEvent(classArray) {
   });
 }
 
-// function highlightText(mpJSON) {
-//   let classArray = [];
-  
-//   mpJSON.forEach(mpObj => {
-//     let name = mpObj.mpFullName;
-//     let className = mpObj.mpId;
-//     let nameRegex = new RegExp(name, 'g');
-
-//     if(document.body.innerHTML.includes(name)) {
-//       let profileLink = "<span href=# class=" + className + " style='color: #62B356'>" + name + "</span>";
-
-//       document.body.innerHTML = document.body.innerHTML.replace(nameRegex, profileLink);
-//       classArray.push(className)
-//     };
-//   });
-
-//   addClickEvent(classArray)
-// }
-
-function highlightTextAC(mpArray) {
-  let ac = new AhoCorasick(mpArray)
-
-  let results = ac.search(document.body.innerText)
-
-  let mpList = results.flat(2).filter((element) => {
-    return (typeof element == 'string');
-  })
-
-  let uniqueMPList = [...new Set(mpList)];
-
+function highlightText(uniqueMPList) {
   let classArray = []
-
-  // Need to see which websites it can run and cant run on
-
-  // Clean up
 
   for(let i = 0; i < uniqueMPList.length; i++) {
     let name = uniqueMPList[i]
     let className = name.toLowerCase().replace(/ /g,"_");
     let nameRegex = new RegExp(name, 'g');
 
-    let profileLink = "<span href=# class=" + className + " style='color: #62B356'>" + name + "</span>";
+    let profileLink = "<span href=# class=" + className + " style='color: #62B356; cursor: pointer'>" + name + "</span>";
     document.body.innerHTML = document.body.innerHTML.replace(nameRegex, profileLink);
     classArray.push(className)
   }
@@ -72,10 +37,22 @@ function highlightTextAC(mpArray) {
   addClickEvent(classArray)
 }
 
-// highlightText(mpJSON);
+function findMps(mpArray) {
+  let ac = new AhoCorasick(mpArray)
+  let results = ac.search(document.body.innerText)
+  
+  let mpList = results.flat(2).filter((element) => {
+    return (typeof element == 'string');
+  })
 
-highlightTextAC(mpArray);
+  let uniqueMPList = [...new Set(mpList)];
 
-let finishTime = performance.now();
+  if (uniqueMPList.length > 100) {
+    return
+  } 
+  else {
+    highlightText(uniqueMPList)
+  }
+}
 
-console.log("Content script took " + (finishTime - startTime) + " milliseconds to run")
+findMps(mpArray);
