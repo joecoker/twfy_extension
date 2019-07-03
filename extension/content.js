@@ -1,6 +1,5 @@
 'use strict'
 const AhoCorasick = require('ahocorasick');
-const mpJSON = require('./mp.json');
 const mpArray = require('./mpArray.json')
 
 function sendToBackground(id) {
