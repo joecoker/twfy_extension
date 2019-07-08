@@ -27,7 +27,6 @@ function highlightText(uniqueMPList) {
     let name = uniqueMPList[i]
     let className = name.toLowerCase().replace(/ /g,"_");
 
-    // Change the regex so it's not in a span or an anchor just it's length
     let nameRegex = new RegExp(name, 'g');
 
     let profileLink = "<span href=# class=" + className + " style='color: #62B356; cursor: pointer'>" + name + "</span>";
