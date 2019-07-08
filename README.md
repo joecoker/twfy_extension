@@ -1,4 +1,4 @@
-# MP 
+# They work for you chrome extension
 
 With over 600 Members of Parliament it's impossible to know who they all are and what they stand for.
 
@@ -21,12 +21,11 @@ This extension is not yet avaiable on the chrome marketplace but you can still r
 The extension will highlight all MP's names in green. Clicking on one of these opens that MP's profile in a new tab.
 
 ![BBC News article](./screenshots/first-page.png)
+![BBC News article](./screenshots/making-selection.png)
+![BBC News article](./screenshots/selecting-more.png)
+![BBC News article](./screenshots/profile.png)
 
 
-## Issues
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Feedback
+All feedback welcome. Contact me via email at joe_coker@hotmail.co.uk or open an issue here on github
 
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
