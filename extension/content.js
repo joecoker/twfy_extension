@@ -1,5 +1,6 @@
 'use strict'
 const AhoCorasick = require('ahocorasick');
+// Does "import AhoCorasick from 'ahocorasick'" work? 
 const mpArray = require('./mpArray.json')
 
 function sendToBackground(id) {
