@@ -5,7 +5,7 @@ const mpArray = require('./mpArray.json')
 function sendToBackground(id) {
   chrome.runtime.sendMessage(id);
 }
-
+// test comment
 function addClickEvent(classArray) {
   classArray.forEach(className => {
     let classList = document.getElementsByClassName(className)
@@ -38,7 +38,7 @@ function highlightText(uniqueMPList) {
 }
 
 function findMps(mpArray) {
-  let ac = new AhoCorasick(mpArray)
+  let ac = new AhoCorasick(mpArray) 
   let results = ac.search(document.body.innerText)
   
   let mpList = results.flat(2).filter((element) => {
@@ -56,3 +56,4 @@ function findMps(mpArray) {
 }
 
 findMps(mpArray);
+
