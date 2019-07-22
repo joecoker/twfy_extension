@@ -21,7 +21,8 @@
       "matches": ["<all_urls>"],
       "js": ["bundle.js"],
       "exclude_matches": [
-        "https://www.reddit.com/*"
+        "https://www.reddit.com/*",
+        "https://www.theyworkforyou.com/*"
       ]
     }
   ]
