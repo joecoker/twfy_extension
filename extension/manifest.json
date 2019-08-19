@@ -1,7 +1,7 @@
 {
-  "name": "TWFY Extension",
+  "name": "They Work For You",
   "description": "Transforms Members of Parliaments names into links to their political profile.",
-  "version": "1.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "background": {
     "persistent": false,
@@ -12,10 +12,6 @@
     "48": "icons/i-48.png",
     "128": "icons/i-128.png"
   },
-  "permissions": [
-    "activeTab",
-    "tabs"
-  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
