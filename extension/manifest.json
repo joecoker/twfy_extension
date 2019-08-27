@@ -1,7 +1,7 @@
 {
   "name": "They Work For You",
-  "description": "Transforms Members of Parliaments names into links to their political profile.",
-  "version": "1.0.1",
+  "description": "Want to know what a Member of Parliament really stands for?",
+  "version": "1.0.2",
   "manifest_version": 2,
   "background": {
     "persistent": false,
