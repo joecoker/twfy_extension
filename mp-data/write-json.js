@@ -8,8 +8,7 @@ const polJson = require('./pol.json')
 let filteredList = polJson.map(polObject => {
   let mpObj = {
     mpFullName: polObject['First name'] + " " + polObject['Last name'],
-    mpUrl: polObject['URI'],
-    mpId: polObject['First name'].toLowerCase() + "_" + polObject['Last name'].toLowerCase()
+    mpUrl: polObject['URI'] + "/votes",
   }
 
   return mpObj
@@ -18,7 +17,7 @@ let filteredList = polJson.map(polObject => {
 
 let jsonContent = JSON.stringify(filteredList)
 
-fs.writeFile('mp.json', jsonContent, 'utf8', function(err) {
+fs.writeFile('mpVotesURI.json', jsonContent, 'utf8', function(err) {
   if (err) {
     console.log("An error occured while writing JSON Object to File.")
   return console.log(err)

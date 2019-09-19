@@ -1,5 +1,6 @@
 const AhoCorasick = require('ahocorasick');
 const mpArray = require('./mpArray.json');
+const mpUrls = require('./mpVotesURI.json')
 
 const sendToBackground = (id) => {
     chrome.runtime.sendMessage(id);
@@ -93,15 +94,16 @@ const highlightResult = (result, node, currentTextIndex) => {
 const addClickEvent = (searchResults) => {
   const mpList = getMpList(searchResults);
   mpList.forEach(mpName => {
-    let className = createClassName(mpName);
 
-    let classList = document.getElementsByClassName(className);
+    const votesUrl = mpUrls.find(obj => obj.mpFullName === mpName).mpUrl;
+    const className = createClassName(mpName);
+    const classList = document.getElementsByClassName(className);
 
     Array.from(classList).forEach(element => {
       element.addEventListener('click', function(event) {
         event.preventDefault();
         event.stopPropagation();
-        sendToBackground(className);
+        sendToBackground(votesUrl);
       });
     });
   });
