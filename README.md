@@ -8,13 +8,7 @@ This extension creates a direct link to an MPs profile whenever their name appea
 
 ## Installation
 
-This extension is not yet avaiable on the chrome marketplace but you can still run it by downloading the code and uploading it directly to your chrome extensions menu. To do this follow these steps:
-
-1) Download the extension folder from this repository
-2) Open chrome and go to your extensions page (chrome://extensions/)
-3) Enable Developer mode by toggling the button in the top right hand corner
-4) Click Load Unpacked and select the extension folder you downloaded
-5) The extension is now installed
+Install the extension at [They Work For You](https://chrome.google.com/webstore/detail/they-work-for-you/oiplfbhbljjcjlennboaemogohdoodpo)
 
 ## Usage
 
