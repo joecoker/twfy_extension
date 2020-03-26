@@ -27,5 +27,5 @@ The extension will highlight all MP's names in green. Clicking on one of these o
 
 
 ## Feedback
-All feedback welcome. Contact me via email at joe_coker@hotmail.co.uk or open an issue here on github
+All feedback welcome. Contact me via email at twfy.extension@gmail.com or open an issue here on github
 
